@@ -27,7 +27,7 @@
               headers.set('Authorization', '<%= theme.comments.waline.imageUploader?.token %>')
             <% } %>
             let formData = new FormData();
-            formData.append('file', file);
+            formData.append('image', file);
             return fetch('<%= theme.comments.waline.imageUploader?.api %>',{
               method: 'POST',
               body: formData,
