@@ -14,16 +14,27 @@
 <!-- typewriter -->
 <script src="https://jsd.cdn.zzko.cn/npm/typewriter-effect@latest/dist/core.js"></script>
 <script>
-  var app = document.querySelector('#l_cover .top .subtitle')[0];
+  var app = document.querySelector('#l_cover .top .subtitle');
 
   var typewriter = new Typewriter(app, {
     loop: true
   });
 
-  typewriter.pauseFor(3000)
+  typewriter.typeString('深圳実験の最強伝説の低品質プログラムコードメーカー')
+    .pauseFor(3000)
     .deleteAll()
     .typeString('Welcome to my blog!')
     .pauseFor(2500)
+    .deleteAll()
+    .typeString('欢迎你四处逛逛！')
+    .pauseFor(2000)
+    .deleteChars(5)
+    .typeString('随便看看！')
+    .pauseFor(2000)
+    .deleteChars(5)
+    .typeString('到处玩玩！')
+    .pauseFor(2000)
+    .start();
 </script>
 
 <script>
