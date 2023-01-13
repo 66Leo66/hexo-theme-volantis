@@ -11,6 +11,21 @@
   volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
 </script>
 
+<!-- typewriter -->
+<script src="https://jsd.cdn.zzko.cn/npm/typewriter-effect@latest/dist/core.js"></script>
+<script>
+  var app = document.querySelector('#l_cover .top .subtitle')[0];
+
+  var typewriter = new Typewriter(app, {
+    loop: true
+  });
+
+  typewriter.pauseFor(3000)
+    .deleteAll()
+    .typeString('Welcome to my blog!')
+    .pauseFor(2500)
+</script>
+
 <script>
   <% if (theme.plugins.fontawesome) { %>
   volantis.css("<%- theme.cdn.fontawesome %>");
