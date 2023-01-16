@@ -62,9 +62,9 @@
       if(userColorScheme){
         document.documentElement.setAttribute("color-scheme", userColorScheme);
       } else {
-        if (window.matchMedia) {
-          var isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          if (isDark) {
+        const darkMatcher = window.matchMedia("(prefers-color-scheme: dark)");
+        if (darkMatcher) {
+          if (darkMatcher.matches) {
             localStorage.setItem("color-scheme", "dark");
             document.documentElement.setAttribute("color-scheme", "dark");
             document.addEventListener('DOMContentLoaded', () => {
@@ -78,6 +78,8 @@
             }, { once: true });
           }
         } else {
+          localStorage.setItem("color-scheme", "light");
+          document.documentElement.setAttribute("color-scheme", "light");
           document.addEventListener('DOMContentLoaded', () => {
               VolantisApp.message("开灯！", "由于无法检测您的系统颜色模式，已为您默认开启浅色模式。您仍可以在导航栏手动切换为深色。");
             }, { once: true });
