@@ -61,29 +61,6 @@
       let userColorScheme=localStorage.getItem("color-scheme")
       if(userColorScheme){
         document.documentElement.setAttribute("color-scheme", userColorScheme);
-      } else {
-        const darkMatcher = window.matchMedia("(prefers-color-scheme: dark)");
-        if (darkMatcher) {
-          if (darkMatcher.matches) {
-            localStorage.setItem("color-scheme", "dark");
-            document.documentElement.setAttribute("color-scheme", "dark");
-            document.addEventListener('DOMContentLoaded', () => {
-              VolantisApp.message("关灯！", "根据您系统的设置，为您开启深色主题。您仍可以在导航栏手动切换为浅色。");
-            }, { once: true });
-          } else {
-            localStorage.setItem("color-scheme", "light");
-            document.documentElement.setAttribute("color-scheme", "light");
-            document.addEventListener('DOMContentLoaded', () => {
-              VolantisApp.message("开灯！", "根据您系统的设置，为您开启浅色主题。您仍可以在导航栏手动切换为深色。");
-            }, { once: true });
-          }
-        } else {
-          localStorage.setItem("color-scheme", "light");
-          document.documentElement.setAttribute("color-scheme", "light");
-          document.addEventListener('DOMContentLoaded', () => {
-              VolantisApp.message("开灯！", "由于无法检测您的系统颜色模式，已为您默认开启浅色模式。您仍可以在导航栏手动切换为深色。");
-            }, { once: true });
-        }
       }
     </script>
   <%_ } _%>
